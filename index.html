@@ -131,13 +131,13 @@ body{background-color:#fff}#mk-page-introduce{background-color:#f7f7f7}.mk-heade
                                 </nav>
                             </div>
                             <div class="mk-nav-responsive-link">
-                                <div class="mk-css-icon-menu">
+                                <div class="mk-css-icon-menu" onclick="toggleResponsiveMenu()">
                                     <div class="mk-css-icon-menu-line-1"></div>
                                     <div class="mk-css-icon-menu-line-2"></div>
                                     <div class="mk-css-icon-menu-line-3"></div>
                                 </div>
                             </div>
-                            <div class="header-logo fit-logo-img add-header-height logo-is-responsive logo-has-sticky"><a href="./" title="Tango"><img class="mk-desktop-logo dark-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png"/ width="175" height="64" loading="lazy"><img class="mk-desktop-logo light-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png"/ width="175" height="64" loading="lazy"><img class="mk-resposnive-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png"/ width="175" height="64" loading="lazy"><img class="mk-sticky-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png"/ width="175" height="64" loading="lazy"></a></div>
+                            <div class="header-logo fit-logo-img add-header-height logo-is-responsive logo-has-sticky"><a href="./" title="Tango"><img class="mk-desktop-logo dark-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png" width="175" height="64" loading="lazy"><img class="mk-desktop-logo light-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png" width="175" height="64" loading="lazy"><img class="mk-resposnive-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png" width="175" height="64" loading="lazy"><img class="mk-sticky-logo" title="A Short film by Brendan Feltrup-Exum" alt="A Short film by Brendan Feltrup-Exum" src="./images/2017-05-logo.png" width="175" height="64" loading="lazy"></a></div>
                         </div>
                         <div class="mk-header-right">
                             <div class="mk-header-social header-section">
@@ -149,20 +149,62 @@ body{background-color:#fff}#mk-page-introduce{background-color:#f7f7f7}.mk-heade
                             </div>
                         </div>
                     </div>
-                    <div class="mk-responsive-wrap">
-                        <nav class="menu-main-menu-container">
+                    <style>
+                        #responsive-menu-nav .mobile-nav {
+                            background-color: #131313; /* Very dark gray background */
+                        }
+                        #responsive-menu-nav .mobile-nav a {
+                            color: #fff; /* White text for better contrast */
+                        }
+                        #responsive-menu-nav .mobile-nav a:hover {
+                            background-color: #2e2e2e; /* Slightly lighter gray on hover */
+                        }
+                    </style>
+                    <div class="mk-responsive-wrap" id="responsive-menu"></div>
+                    <nav class="menu-main-menu-container" id="responsive-menu-nav" style="display: none;">
                             <ul id="menu-main-menu-1" class="mk-responsive-nav">
-                                <li id="responsive-menu-item-4944" class="menu-item menu-item-type-custom menu-item-object-custom"><a class="menu-item-link js-smooth-scroll" href="#home">Home</a></li>
-                                <li id="responsive-menu-item-4945" class="menu-item menu-item-type-custom menu-item-object-custom"><a class="menu-item-link js-smooth-scroll" href="#about">About the Film</a></li>
-                                <li id="responsive-menu-item-4946" class="menu-item menu-item-type-custom menu-item-object-custom"><a class="menu-item-link js-smooth-scroll" href="#gallery">Gallery</a></li>
-                                <li id="responsive-menu-item-4947" class="menu-item menu-item-type-custom menu-item-object-custom"><a class="menu-item-link js-smooth-scroll" href="#castcrew">Cast &#038; Crew</a></li>
-                                <li id="responsive-menu-item-4948" class="menu-item menu-item-type-custom menu-item-object-custom"><a class="menu-item-link js-smooth-scroll" href="#contact">Contact</a></li>
+                                <li id="responsive-menu-item-4944" class="menu-item menu-item-type-custom menu-item-object-custom mobile-nav"><a class="menu-item-link js-smooth-scroll" href="#home">Home</a></li>
+                                <li id="responsive-menu-item-4945" class="menu-item menu-item-type-custom menu-item-object-custom mobile-nav"><a class="menu-item-link js-smooth-scroll" href="#about">About the Film</a></li>
+                                <li id="responsive-menu-item-4946" class="menu-item menu-item-type-custom menu-item-object-custom mobile-nav"><a class="menu-item-link js-smooth-scroll" href="#gallery">Gallery</a></li>
+                                <li id="responsive-menu-item-4947" class="menu-item menu-item-type-custom menu-item-object-custom mobile-nav"><a class="menu-item-link js-smooth-scroll" href="#castcrew">Cast &#038; Crew</a></li>
+                                <li id="responsive-menu-item-4948" class="menu-item menu-item-type-custom menu-item-object-custom mobile-nav"><a class="menu-item-link js-smooth-scroll" href="#contact">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class="mk-header-padding-wrapper"></div>
             </header>
+
+            <script>
+                function toggleResponsiveMenu() {
+                    const menu = document.getElementById('responsive-menu-nav');
+                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                }
+
+                document.querySelectorAll('#responsive-menu-nav .menu-item-link, #menu-main-menu-1 .menu-item-link').forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                        // Close the menu after clicking
+                        const menu = document.getElementById('responsive-menu-nav');
+                        if (menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                        }
+                    });
+                });
+            
+                function toggleResponsiveMenu() {
+                    const menu = document.getElementById('responsive-menu-nav');
+                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                }
+            </script>
             <div id="theme-page" class="master-holder  clearfix" itemscope="itemscope" itemtype="https://schema.org/Blog">
                 <div class="master-holder-bg-holder">
                     <div id="theme-page-bg" class="master-holder-bg js-el"></div>
@@ -278,14 +320,14 @@ body{background-color:#fff}#mk-page-introduce{background-color:#f7f7f7}.mk-heade
                     </div>
                     <div id="text-block-8" class="mk-text-block">
                         <p><img decoding="async" class="size-full wp-image-4958 alignleft" src="./images/2017-05-service1.png" alt="" width="96" height="96" srcset="./images/2017-05-service1.png 96w, ./images/2017-05-service1-60x60.png 60w" sizes="(max-width: 96px) 100vw, 96px"
-                            / loading="lazy"></p>
+                            loading="lazy"></p>
                         <h2>SCREENING FORMATS</h2>
                         <p>DCP 2K, DVD, Blu-Ray, ProRes 422, h.264</p>
                         <div class="clearboth"></div>
                     </div>
                     <div id="text-block-9" class="mk-text-block">
                         <p><img decoding="async" class="size-full wp-image-4960 alignleft" src="./images/2017-05-service3.png" alt="" width="96" height="96" srcset="./images/2017-05-service3.png 96w, ./images/2017-05-service3-60x60.png 60w" sizes="(max-width: 96px) 100vw, 96px"
-                            / loading="lazy"></p>
+                            loading="lazy"></p>
                         <h2>FILM DETAILS</h2>
                         <p>TRT 4:17, Sound: 2Ch Stereo, Genre: Action/Drama</p>
                         <div class="clearboth"></div>

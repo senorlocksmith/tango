@@ -334,9 +334,43 @@
                 <div class="theme-content no-padding"></div>
             </div>
         </div>
-        <style>
+                <style>
             #gallery {
-.column{flex:25%;max-width:25%;padding:0 4px}.column img{margin-bottom:8px;vertical-align:middle;width:100%}@media screen and (max-width:800px){.column{flex:50%;max-width:50%}}@media screen and (max-width:600px){.column{flex:100%;max-width:100%}}
+
+                background-color: #121212; /* Very dark gray specific to gallery */
+              }
+              
+              .row {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0 4px;
+              }
+              
+              .column {
+                flex: 25%;
+                max-width: 25%;
+                padding: 0 4px;
+              }
+              
+              .column img {
+                margin-bottom: 8px;
+                vertical-align: middle;
+                width: 100%;
+              }
+              
+              @media screen and (max-width: 800px) {
+                .column {
+                  flex: 50%;
+                  max-width: 50%;
+                }
+              }
+              
+              @media screen and (max-width: 600px) {
+                .column {
+                  flex: 100%;
+                  max-width: 100%;
+                }
+              }
               </style>
             <!-- Gallery Section -->
     <div id="gallery" class="wpb_row vc_row vc_row-fluid mk-fullwidth-true attched-false js-master-row">

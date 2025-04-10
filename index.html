@@ -721,34 +721,64 @@
     </div>
     <section id="mk-footer-unfold-spacer"></section>
     <section id="mk-footer-unfold-spacer"></section>
-    <section id="mk-footer" class="" role="contentinfo" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+    <section id="mk-footer" class="" role="contentinfo" itemscope="itemscope">
         <div id="sub-footer">
             <div class="mk-grid">
-                <div class="mk-footer-logo"><a href="./" title="Tango"><img alt="Tango" src="./images/2017-05-logo.png" width="175" height="64" loading="lazy"></a></div><span class="mk-footer-copyright">Copyright All Rights Reserved &copy; 2017</span></div>
+                <div class="mk-footer-logo"><a href="./" title="Tango"><img alt="Tango" src="./images/2017-05-logo.png" width="175" height="64" loading="lazy"></a></div><span class="mk-footer-copyright">Copyright All Rights Reserved &copy; 2017-2025</span></div>
             <div class="clearboth"></div>
         </div>
     </section>
     </div>
     </div>
-    <div class="bottom-corner-btns js-bottom-corner-btns"><a href="#top-of-page" class="mk-go-top  js-smooth-scroll js-bottom-corner-btn js-bottom-corner-btn--back"><svg class="mk-svg-icon" data-name="mk-icon-chevron-up" data-cacheid="icon-67b4e41f08f8a" style="height:16px;width:16px;" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1792 1792"><path d="M1683 1331l-166 165q-19 19-45 19t-45-19l-531-531-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"/></svg></a></div>
-    <footer
-        id="mk_page_footer">
-        <script defer='defer' type="text/javascript" src="./js/simply-static-pro-assets-ssp-form-webhook-public.js" id="ssp-form-webhook-public-js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              document.querySelectorAll('a.js-smooth-scroll[href^="#"]').forEach(anchor => {
-                anchor.addEventListener("click", function (e) {
-                  e.preventDefault();
-                  const target = document.querySelector(this.getAttribute("href"));
-                  if (target) {
-                    target.scrollIntoView({
-                      behavior: "smooth"
-                    });
-                  }
-                });
-              });
-            });
-          </script>
+    <style>
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 1000;
+            border: none;
+            outline: none;
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly dark transparent gray box */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+        }
+
+        #myBtn:hover {
+            background-color: rgba(0, 0, 0, 0.8); /* Less transparent on hover */
+        }
+
+        #myBtn::before {
+            content: "▲"; /* Upward chevron */
+            font-size: 16px;
+        }
+    </style>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
+
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, smooth scroll to the top of the document
+        function topFunction() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
         <script defer='defer' type="text/javascript" src="./js/7tz-comment-reply.min.js" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
         <script defer='defer' type="text/javascript" src="./js/jupiter-assets-js-min-core-scripts.js" id="theme-scripts-js"></script>
         <script defer='defer' type="text/javascript" src="./js/js_composer_theme-assets-js-dist-js_composer_front.min.js" id="wpb_composer_front_js-js"></script>

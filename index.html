@@ -749,6 +749,21 @@ body{background-color:#fff}#mk-page-introduce{background-color:#f7f7f7}.mk-heade
         function topFunction() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        document.querySelectorAll('.js-smooth-scroll').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
     </script>
         <script defer='defer' type="text/javascript" src="./js/7tz-comment-reply.min.js" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
         <script defer='defer' type="text/javascript" src="./js/jupiter-assets-js-min-core-scripts.js" id="theme-scripts-js"></script>
@@ -824,19 +839,7 @@ body{background-color:#fff}#mk-page-introduce{background-color:#f7f7f7}.mk-heade
                 loadStyleSheet('./css/animate.min.css');
             }())
 
-            document.querySelectorAll('.js-smooth-scroll').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+        
         </script> */
         <!-- Add this lightbox structure near the end of the body -->
 <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
